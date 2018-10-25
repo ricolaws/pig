@@ -53,10 +53,26 @@ function roll1() {
     $("#end2").removeClass("btn-no-dice");
     turnScore1 = [0];
   }
-  else {
+  else if (x === 2) {
+    $("#d2").show();
     turnScore1.push(x);
   }
-
+  else if (x === 3) {
+    $("#d3").show();
+    turnScore1.push(x);
+  }
+  else if (x === 4) {
+    $("#d4").show();
+    turnScore1.push(x);
+  }
+  else if (x === 5) {
+    $("#d5").show();
+    turnScore1.push(x);
+  }
+  else if (x === 6) {
+    $("#d6").show();
+    turnScore1.push(x);
+  }
 };
 
 function roll2() {
@@ -78,6 +94,12 @@ $(document).ready(function() {
   $("form#player1Roll").submit(function(event) {
     event.preventDefault();
     x = rndNumber();
+    $("#d1").hide();
+    $("#d2").hide();
+    $("#d3").hide();
+    $("#d4").hide();
+    $("#d5").hide();
+    $("#d6").hide();
     roll1();
     // $("#dice").text(x);
     $("#player1-score-keeper").text(turnScore1.reduce(add, 0));
@@ -103,7 +125,7 @@ $(document).ready(function() {
     event.preventDefault();
     x = rndNumber();
     roll2();
-    $("#dice").text(x);
+    // $("#dice").text(x);
     $("#player2-score-keeper").text(turnScore2.reduce(add, 0));
 
 
