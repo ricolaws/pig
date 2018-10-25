@@ -46,6 +46,7 @@ function add(a, b) {
 function roll1() {
   if (x === 1) {
     console.log("end turn");
+    $("#d1").show();
     $("#roll1").addClass("btn-no-dice");
     $("#end1").addClass("btn-no-dice");
     $("#roll2").removeClass("btn-no-dice");
@@ -55,6 +56,7 @@ function roll1() {
   else {
     turnScore1.push(x);
   }
+
 };
 
 function roll2() {
@@ -77,7 +79,7 @@ $(document).ready(function() {
     event.preventDefault();
     x = rndNumber();
     roll1();
-    $("#dice").text(x);
+    // $("#dice").text(x);
     $("#player1-score-keeper").text(turnScore1.reduce(add, 0));
 
 
