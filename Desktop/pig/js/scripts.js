@@ -46,10 +46,10 @@ function add(a, b) {
 function roll1() {
   if (x === 1) {
     console.log("end turn");
-    $("#roll1").hide();
-    $("#end1").hide();
-    $("#roll2").show();
-    $("#end2").show();
+    $("#roll1").addClass("btn-no-dice");
+    $("#end1").addClass("btn-no-dice");
+    $("#roll2").removeClass("btn-no-dice");
+    $("#end2").removeClass("btn-no-dice");
     turnScore1 = [0];
   }
   else {
@@ -60,10 +60,10 @@ function roll1() {
 function roll2() {
   if (x === 1) {
     console.log("end turn");
-    $("#roll2").hide();
-    $("#end2").hide();
-    $("#roll1").show();
-    $("#end1").show();
+    $("#roll2").addClass("btn-no-dice");
+    $("#end2").addClass("btn-no-dice");
+    $("#roll1").removeClass("btn-no-dice");
+    $("#end1").removeClass("btn-no-dice");
     turnScore2 = [0];
   }
   else {
@@ -88,10 +88,10 @@ $(document).ready(function() {
     totalScore1.push(turnScore1.reduce(add, 0));
     var newScore = totalScore1.reduce(add, 0);
     $("#player1-total-score").text(totalScore1.reduce(add, 0));
-    $("#roll1").hide();
-    $("#end1").hide();
-    $("#roll2").show();
-    $("#end2").show();
+    $("#roll1").addClass("btn-no-dice");
+    $("#end1").addClass("btn-no-dice");
+    $("#roll2").removeClass("btn-no-dice");
+    $("#end2").removeClass("btn-no-dice");
     if (newScore > 50) {
       console.log("win");
     }
@@ -112,10 +112,10 @@ $(document).ready(function() {
     totalScore2.push(turnScore2.reduce(add, 0));
     var newScore = totalScore2.reduce(add, 0);
     $("#player2-total-score").text(totalScore2.reduce(add, 0));
-    $("#roll2").hide();
-    $("#end2").hide();
-    $("#roll1").show();
-    $("#end1").show();
+    $("#roll2").addClass("btn-no-dice");
+    $("#end2").addClass("btn-no-dice");
+    $("#roll1").removeClass("btn-no-dice");
+    $("#end1").removeClass("btn-no-dice");
     if (newScore > 50) {
       console.log("win");
     }
