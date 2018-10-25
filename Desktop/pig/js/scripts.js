@@ -78,13 +78,31 @@ function roll1() {
 function roll2() {
   if (x === 1) {
     console.log("end turn");
+    $("#d1").show();
     $("#roll2").addClass("btn-no-dice");
     $("#end2").addClass("btn-no-dice");
     $("#roll1").removeClass("btn-no-dice");
     $("#end1").removeClass("btn-no-dice");
     turnScore2 = [0];
   }
-  else {
+  else if (x === 2) {
+    $("#d2").show();
+    turnScore2.push(x);
+  }
+  else if (x === 3) {
+    $("#d3").show();
+    turnScore2.push(x);
+  }
+  else if (x === 4) {
+    $("#d4").show();
+    turnScore2.push(x);
+  }
+  else if (x === 5) {
+    $("#d5").show();
+    turnScore2.push(x);
+  }
+  else if (x === 6) {
+    $("#d6").show();
     turnScore2.push(x);
   }
 };
@@ -117,13 +135,19 @@ $(document).ready(function() {
     $("#roll2").removeClass("btn-no-dice");
     $("#end2").removeClass("btn-no-dice");
     if (newScore > 50) {
-      console.log("win");
+      alert("PLAYER 1 WINS");
     }
     turnScore1 = [0];
   });
   $("form#player2Roll").submit(function(event) {
     event.preventDefault();
     x = rndNumber();
+    $("#d1").hide();
+    $("#d2").hide();
+    $("#d3").hide();
+    $("#d4").hide();
+    $("#d5").hide();
+    $("#d6").hide();
     roll2();
     // $("#dice").text(x);
     $("#player2-score-keeper").text(turnScore2.reduce(add, 0));
